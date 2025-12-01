@@ -1,81 +1,105 @@
-html {
-    background-color: #f1f5f9;
-    font-family: sans-serif;
-  }
-  
-a {
-  text-decoration: none;
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+@import "tailwindcss";
+
+:root {
+  --md-sys-color-primary: rgb(141 79 0);
+  --md-sys-color-surface-tint: rgb(141 79 0);
+  --md-sys-color-on-primary: rgb(255 255 255);
+  --md-sys-color-primary-container: rgb(255 164 73);
+  --md-sys-color-on-primary-container: rgb(111 61 0);
+  --md-sys-color-secondary: rgb(124 83 95);
+  --md-sys-color-on-secondary: rgb(255 255 255);
+  --md-sys-color-secondary-container: rgb(228 177 191);
+  --md-sys-color-on-secondary-container: rgb(104 66 78);
+  --md-sys-color-tertiary: rgb(141 79 0);
+  --md-sys-color-on-tertiary: rgb(255 255 255);
+  --md-sys-color-tertiary-container: rgb(255 164 73);
+  --md-sys-color-on-tertiary-container: rgb(111 61 0);
+  --md-sys-color-error: rgb(186 26 26);
+  --md-sys-color-on-error: rgb(255 255 255);
+  --md-sys-color-error-container: rgb(255 218 214);
+  --md-sys-color-on-error-container: rgb(147 0 10);
+  --md-sys-color-background: rgb(255 248 245);
+  --md-sys-color-on-background: rgb(34 26 20);
+  --md-sys-color-surface: rgb(255 248 245);
+  --md-sys-color-on-surface: rgb(34 26 20);
+  --md-sys-color-surface-variant: rgb(246 222 204);
+  --md-sys-color-on-surface-variant: rgb(83 68 55);
+  --md-sys-color-outline: rgb(134 116 101);
+  --md-sys-color-outline-variant: rgb(217 194 177);
+  --md-sys-color-shadow: rgb(0 0 0);
+  --md-sys-color-scrim: rgb(0 0 0);
+  --md-sys-color-inverse-surface: rgb(56 47 40);
+  --md-sys-color-inverse-on-surface: rgb(254 238 227);
+  --md-sys-color-inverse-primary: rgb(255 184 118);
+  --md-sys-color-primary-fixed: rgb(255 220 192);
+  --md-sys-color-on-primary-fixed: rgb(45 22 0);
+  --md-sys-color-primary-fixed-dim: rgb(255 184 118);
+  --md-sys-color-on-primary-fixed-variant: rgb(107 59 0);
+  --md-sys-color-secondary-fixed: rgb(255 217 226);
+  --md-sys-color-on-secondary-fixed: rgb(48 18 28);
+  --md-sys-color-secondary-fixed-dim: rgb(237 185 199);
+  --md-sys-color-on-secondary-fixed-variant: rgb(97 60 72);
+  --md-sys-color-tertiary-fixed: rgb(255 220 192);
+  --md-sys-color-on-tertiary-fixed: rgb(45 22 0);
+  --md-sys-color-tertiary-fixed-dim: rgb(255 184 118);
+  --md-sys-color-on-tertiary-fixed-variant: rgb(107 59 0);
+  --md-sys-color-surface-dim: rgb(231 215 205);
+  --md-sys-color-surface-bright: rgb(255 248 245);
+  --md-sys-color-surface-container-lowest: rgb(255 255 255);
+  --md-sys-color-surface-container-low: rgb(255 241 232);
+  --md-sys-color-surface-container: rgb(251 235 224);
+  --md-sys-color-surface-container-high: rgb(245 229 218);
+  --md-sys-color-surface-container-highest: rgb(239 224 213);
 }
 
-  body {
-    margin: 0 auto;
-    width: 100%;
-    max-width: 80ch;
-    padding: 1rem;
-    line-height: 1.5;
-  }
-  
-  * {
-    box-sizing: border-box;
-  }
-  
-  h1 {
-    margin: 1rem 0;
-    font-size: 2.5rem;
-  }
-  
-  /* nav styles */
-  .menu {
-    background-color: #0d0950;
-    border: none;
-    color: #fff;
-    font-size: 1.2rem;
-    font-weight: bold;
-    padding: 5px 10px;
-  }
 
-  .nav-links {
-    width: 100%;
-    display: none;
-    margin: 0;
-  }
-  
-  .nav-links a {
-    display: block;
-    text-align: center;
-    padding: 10px 0;
-    text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: #0d0950;
-  }
-  
-  .nav-links a:hover,
-  .nav-links a:focus {
-    background-color: #ff96765c;
-  }
-  
-  @media screen and (min-width: 636px) {
-    :has(.menu[aria-expanded="true"]) .nav-links {
-        display: unset;
-      }
+@theme {
+  --font-sans: "Plus Jakarta Sans", sans-serif;
 
-    .nav-links {
-      padding: 0;
-      display: block;
-      position: static;
-      width: auto;
-      background: none;
-    }
-  
-    .nav-links a {
-      display: inline-block;
-      padding: 15px 20px;
-      border-radius: 8px;
-    }
+  --color-md-primary: var(--md-sys-color-primary);
+  --color-md-on-primary: var(--md-sys-color-on-primary);
+  --color-md-primary-container: var(--md-sys-color-primary-container);
+  --color-md-on-primary-container: var(--md-sys-color-on-primary-container);
+  --color-md-secondary: var(--md-sys-color-secondary);
+  --color-md-on-secondary: var(--md-sys-color-on-secondary);
+  --color-md-secondary-container: var(--md-sys-color-secondary-container);
+  --color-md-on-secondary-container: var(--md-sys-color-on-secondary-container);
+  --color-md-tertiary: var(--md-sys-color-tertiary);
+  --color-md-on-tertiary: var(--md-sys-color-on-tertiary);
+  --color-md-tertiary-container: var(--md-sys-color-tertiary-container);
+  --color-md-on-tertiary-container: var(--md-sys-color-on-tertiary-container);
+  --color-md-error: var(--md-sys-color-error);
+  --color-md-on-error: var(--md-sys-color-on-error);
+  --color-md-error-container: var(--md-sys-color-error-container);
+  --color-md-on-error-container: var(--md-sys-color-on-error-container);
+  --color-md-background: var(--md-sys-color-background);
+  --color-md-on-background: var(--md-sys-color-on-background);
+  --color-md-surface: var(--md-sys-color-surface);
+  --color-md-on-surface: var(--md-sys-color-on-surface);
+  --color-md-outline: var(--md-sys-color-outline);
+  --color-md-shadow: var(--md-sys-color-shadow);
+  --color-md-scrim: var(--md-sys-color-scrim);
+  --color-md-inverse-surface: var(--md-sys-color-inverse-surface);
+  --color-md-inverse-on-surface: var(--md-sys-color-inverse-on-surface);
+  --color-md-inverse-primary: var(--md-sys-color-inverse-primary);
+  --color-md-surface-variant: var(--md-sys-color-surface-variant);
+  --color-md-on-surface-variant: var(--md-sys-color-on-surface-variant);
+  --color-md-outline-variant: var(--md-sys-color-outline-variant);
+  --color-md-surface-dim: var(--md-sys-color-surface-dim);
+  --color-md-surface-bright: var(--md-sys-color-surface-bright);
+  --color-md-surface-container-lowest: var(--md-sys-color-surface-container-lowest);
+  --color-md-surface-container-low: var(--md-sys-color-surface-container-low);
+  --color-md-surface-container: var(--md-sys-color-surface-container);
+  --color-md-surface-container-high: var(--md-sys-color-surface-container-high);
+  --color-md-surface-container-highest: var(--md-sys-color-surface-container-highest);
+}
 
-    .menu {
-        display: none;
-      }
+@layer utilities {
+  .type-body-large {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
   }
+}
