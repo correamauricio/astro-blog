@@ -1,13 +1,15 @@
 ---
 // Header.astro
-import MdButton from "./MdButton.astro";
 import Contact from "./Contact.astro";
 
 const pathname = Astro.url.pathname;
 
+const base = import.meta.env.BASE_URL;
+const path = (caminho: string) => `${base}${caminho}`.replace('//', '/');
+
 const navItems = [
-  { label: "Início", href: "/" },
-  { label: "Sobre", href: "/about" },
+  { label: "Início", href: path('/') },
+  { label: "Sobre", href: path('/about') },
   // { label: "Soluções", href: "/solutions" },
 ];
 
