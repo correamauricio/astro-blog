@@ -6,6 +6,7 @@ import '../styles/global.css';
 import Logo from '../components/Logo.astro';
 import heroImg from '../assets/HeroImage.png';
 import MainProducts from '../components/sections/MainProducts.astro';
+import Contact from '../components/Contact.astro';
 ---
 <BaseLayout>
 
@@ -14,7 +15,11 @@ import MainProducts from '../components/sections/MainProducts.astro';
         <Logo color='var(--color-md-on-primary-fixed)' size="24" class="grow-0"/>
         <h1 class="type-headline-medium-emphasized text-md-on-primary-fixed md:type-display-large-emphasized md:max-w-[720px]">O ecossistema digital para a educação do futuro</h1>
       </div>
-      <MdButton variant="tonal" size="md">Solicite uma demonstração</MdButton>
+      <Contact 
+        variant="tonal" 
+        size="md"
+        msg="Solicite uma demonstração"
+      />
       <Image 
         src={heroImg} 
         alt="Descrição do fundo"
