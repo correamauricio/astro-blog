@@ -1,10 +1,105 @@
 ---
-import Navigation from "./Navigation.astro";
-import Menu from "./Menu.astro";
+// Header.astro
+import MdButton from "./MdButton.astro";
+
+const pathname = Astro.url.pathname;
+
+const navItems = [
+  { label: "Início", href: "/" },
+  { label: "Sobre", href: "/about" },
+  { label: "Soluções", href: "/solutions" },
+];
+
+const currentPath = pathname.replace(/\/$/, "") || "/";
 ---
-<header>
-    <nav>
-        <Menu />
-        <Navigation />
-    </nav>
+
+<header class="flex items-center justify-center w-full fixed py-4 top-0 md:top-10 z-50 px-4">
+  <nav class="flex items-center gap-3 md:w-auto justify-between md:justify-center">
+    
+    <button 
+      id="mobile-menu-btn"
+      class="md:hidden flex items-center justify-center bg-md-surface-container/80 backdrop-blur-md text-md-on-surface-variant rounded-full w-14 h-14 hover:bg-md-surface-container transition-colors"
+      aria-label="Abrir menu"
+    >
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M21 18.25C21.4142 18.25 21.75 18.5858 21.75 19C21.75 19.4142 21.4142 19.75 21 19.75H3C2.58579 19.75 2.25 19.4142 2.25 19C2.25 18.5858 2.58579 18.25 3 18.25H21ZM21 11.25C21.4142 11.25 21.75 11.5858 21.75 12C21.75 12.4142 21.4142 12.75 21 12.75H3C2.58579 12.75 2.25 12.4142 2.25 12C2.25 11.5858 2.58579 11.25 3 11.25H21ZM21 4.25C21.4142 4.25 21.75 4.58579 21.75 5C21.75 5.41421 21.4142 5.75 21 5.75H3C2.58579 5.75 2.25 5.41421 2.25 5C2.25 4.58579 2.58579 4.25 3 4.25H21Z" fill="#221A14"/>
+    </svg>
+    </button>
+
+    <ul class="hidden md:flex items-center bg-md-surface-container/80 rounded-full gap-3 backdrop-blur-md">
+      {navItems.map((item) => {
+        const isActive = currentPath === item.href;
+        return (
+          <li>
+            <a
+              href={item.href}
+              class:list={[
+                "m-3 px-4 py-3 min-w-32 type-label-medium inline-flex items-center justify-center gap-2 rounded-full transition-colors duration-200 focus:outline-none disabled:opacity-50 disabled:pointer-events-none relative overflow-hidden before:transition-opacity before:duration-300",
+                isActive 
+                  ? "bg-md-secondary-container text-md-on-secondary-container focus:before:opacity-10 before:absolute before:inset-0 before:bg-md-on-secondary-container before:opacity-0 hover:before:opacity-8 active:before:opacity-12" 
+                  : "text-md-on-surface-variant focus:before:opacity-10 before:absolute before:inset-0 before:bg-md-on-secondary-container before:opacity-0 hover:before:opacity-8 active:before:opacity-12" 
+              ]}
+            >
+              {item.label}
+            </a>
+          </li>
+        );
+      })}
+    </ul>
+
+    <div class="flex-1 md:flex-none flex justify-end">
+        <MdButton 
+        variant="tonal" 
+        size="md"
+        class="w-full md:w-auto" 
+        >
+        Faça um orçamento
+        </MdButton>
+    </div>
+
+  </nav>
+
+  <div id="mobile-menu-overlay" class="hidden fixed inset-0 bg-black/50 z-40" aria-hidden="true"></div>
+  <div id="mobile-menu-content" class="fixed inset-y-0 left-0 w-64 bg-md-surface-container transform -translate-x-full transition-transform duration-300 z-50 p-6 shadow-xl md:hidden">
+      <div class="flex justify-end mb-6">
+          <button id="close-menu-btn" class="p-2">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+          </button>
+      </div>
+      <ul class="flex flex-col gap-4">
+        {navItems.map((item) => (
+            <li>
+                <a href={item.href} class="text-md-on-surface-variant text-lg font-medium block py-2">{item.label}</a>
+            </li>
+        ))}
+      </ul>
+  </div>
+
 </header>
+
+<script>
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const closeBtn = document.getElementById('close-menu-btn');
+  const menuContent = document.getElementById('mobile-menu-content');
+  const overlay = document.getElementById('mobile-menu-overlay');
+
+  function toggleMenu() {
+    const isHidden = menuContent?.classList.contains('-translate-x-full');
+    
+    if (isHidden) {
+        // Abrir
+        menuContent?.classList.remove('-translate-x-full');
+        overlay?.classList.remove('hidden');
+    } else {
+        // Fechar
+        menuContent?.classList.add('-translate-x-full');
+        overlay?.classList.add('hidden');
+    }
+  }
+
+  menuBtn?.addEventListener('click', toggleMenu);
+  closeBtn?.addEventListener('click', toggleMenu);
+  overlay?.addEventListener('click', toggleMenu);
+</script>
