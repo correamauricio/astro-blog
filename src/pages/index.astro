@@ -13,7 +13,12 @@ import Contact from '../components/Contact.astro';
     <div class="m-2 mb-0 py-8 px-3 h-[720px] rounded-4xl flex flex-col justify-end items-center gap-6 text-center relative overflow-hidden md:p-8 md:py-32 md:items-start md:text-left md:gap-16 md:m-6">
       <div class="flex flex-col gap-6 items-center md:gap-8 md:items-start">
         <Logo color='var(--color-md-on-primary-fixed)' size="24" class="grow-0"/>
-        <h1 class="type-headline-medium-emphasized text-md-on-primary-fixed md:type-display-large-emphasized md:max-w-[720px]">O ecossistema digital para a educação do futuro</h1>
+        <div class="relative w-fit mx-auto">
+          <div class="absolute inset-0 -z-10 scale-125 rounded-full bg-white/80 blur-xl"></div>
+          <h1 class=" relative type-headline-medium-emphasized text-md-on-primary-fixed md:type-display-large-emphasized md:max-w-[50vw] md:text-[4vw]/[1.1]">
+            O ecossistema digital para a educação do futuro
+          </h1>
+        </div>
       </div>
       <Contact 
         variant="tonal" 
