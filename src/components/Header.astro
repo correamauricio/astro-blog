@@ -3,17 +3,29 @@
 import Contact from "./Contact.astro";
 
 const pathname = Astro.url.pathname;
-
 const base = import.meta.env.BASE_URL;
-const path = (caminho: string) => `${base}${caminho}`.replace('//', '/');
+
+// Função auxiliar para gerar links com a base correta
+const path = (caminho: string) => {
+  const cleanBase = base.replace(/\/$/, ''); // Remove barra final da base se houver
+  const cleanCaminho = caminho.replace(/^\//, ''); // Remove barra inicial do caminho
+  return `${cleanBase}/${cleanCaminho}`;
+};
 
 const navItems = [
   { label: "Início", href: path('/') },
   { label: "Sobre", href: path('/about') },
-  // { label: "Soluções", href: "/solutions" },
 ];
 
-const currentPath = pathname.replace(/\/$/, "") || "/";
+// --- A MÁGICA ACONTECE AQUI ---
+// Esta função limpa tudo (barras finais, index.html) para comparar apenas o que importa
+const normalize = (path: string) => {
+  return path
+    .replace(/\/index\.html$/, '')  // Remove index.html se aparecer
+    .replace(/\/+$/, '');           // Remove barra(s) do final
+};
+
+const currentPathRaw = normalize(pathname);
 ---
 
 <header class="flex items-center justify-center w-full fixed py-4 top-0 md:top-10 z-50 px-4">
@@ -31,7 +43,7 @@ const currentPath = pathname.replace(/\/$/, "") || "/";
 
     <ul class="hidden md:flex items-center bg-md-surface-container/80 rounded-full gap-3 backdrop-blur-md">
       {navItems.map((item) => {
-        const isActive = currentPath === item.href;
+        const isActive = currentPathRaw === normalize(item.href);
         return (
           <li>
             <a
