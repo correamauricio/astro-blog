@@ -1,4 +1,5 @@
 import { defineConfig } from 'astro/config';
+import tailwind from '@tailwindcss/vite';
 
 const isNetlify = process.env.NETLIFY === 'true';
 
@@ -8,4 +9,5 @@ export default defineConfig({
     : 'https://correamauricio.github.io',
 
   base: isNetlify ? '/' : '/astro-blog',
+  integrations: [tailwind()],
 });
