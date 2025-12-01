@@ -1,5 +1,5 @@
 import { defineConfig } from 'astro/config';
-import tailwind from '@tailwindcss/vite';
+import tailwind from '@astrojs/tailwind';
 
 const isNetlify = process.env.NETLIFY === 'true';
 
