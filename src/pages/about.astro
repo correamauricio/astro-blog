@@ -1,63 +1,245 @@
 ---
-import '../styles/global.css';
-import BaseLayout from '../layouts/BaseLayout.astro';
+import Layout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
 
-const pageTitle = "About Me";
+// Placeholders para imagens (substitua pelos assets reais do projeto)
+import imgHero from "../assets/AboutImage.png";
+import imgOffice from "../assets/CompanyValues.png";
+import imgEmployee1 from "../assets/Avatar1.png";
+import imgEmployee2 from "../assets/Avatar2.png";
+import imgEmployee3 from "../assets/Avatar3.png";
+import imgEmployee4 from "../assets/Avatar4.png";
+import imgEmployee5 from "../assets/Avatar5.png";
+import imgEmployee6 from "../assets/Avatar6.png";
 
-const identity = {
-  firstName: "Sarah",
-  country: "Canada",
-  occupation: "Technical Writer",
-  hobbies: ["photography", "birdwatching", "baseball"],
-};
+// Dados da Equipe
+const teamMembers = [
+  { name: "Brenda Jacques", role: "CEO (Chief Executive Officer)", img: imgEmployee6 },
+  { name: "Maurício Correa", role: "CTO (Chief Technology Officer)", img: imgEmployee5 },
+  { name: "João dos Santos", role: "CPO (Chief Product Officer)", img: imgEmployee4 },
+  { name: "Pedro Alexandre", role: "Head de Sucesso do Cliente", img: imgEmployee3 },
+  { name: "Elizabeth Batista", role: "Designer de Produto Sênior", img: imgEmployee2 },
+  { name: "Olga Brentano", role: "Arquiteta de Software Educacional", img: imgEmployee1 },
+];
 
-const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
-
-const happy = true;
-const finished = false;
-const goal = 3;
-
-const skillColor = "crimson";
+// Dados da Timeline
+const timelineEvents = [
+  { year: "2018", title: "O ponto de virada", desc: "Nascemos da frustração com a tecnologia educacional obsoleta. Vimos coordenadores perdidos em planilhas e dados valiosos sobre evasão sendo ignorados." },
+  { year: "2019", title: "A nossa missão", desc: "Decidimos construir a plataforma que sempre sonhamos: onde a tecnologia não é uma barreira, mas a ponte. O foco é um design intuitivo e dados que geram ações." },
+  { year: "Hoje", title: "O futuro da gestão", desc: "Somos movidos pela paixão de usar design de ponta e inteligência de dados para otimizar a gestão e potencializar o futuro de cada instituição parceira." },
+];
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>{pageTitle}</title>
+<Layout title="Sobre Nós | Savant Nexus">
+
+  <main class="w-full bg-md-surface overflow-hidden">
     
-    <style define:vars={{skillColor}}>
-      .skill {
-            color: var(--skillColor);
-            font-weight: bold;
-        }
-    </style>
-	</head>
-	<body>
-        <BaseLayout pageTitle={pageTitle}>
-            <h2>... and my new Astro site!</h2>
+    <!-- HERO SECTION -->
+    <section class="w-full p-2 lg:p-6 mb-20">
+      <div class=" mx-auto bg-md-surface-variant rounded-4xl p-2 pt-32 lg:p-6 lg:pt-32 flex flex-col lg:flex-row items-end gap-10 lg:gap-20">
         
-            <p>I am working through Astro's introductory tutorial. This is the second page on my website, and it's the first one I built myself!</p>
-            <p>This site will update as I complete more of the tutorial, so keep checking back and see how my journey is going!</p>    
-            
-            <p>Here are a few facts about me:</p>
-            <ul>
-                <li>My name is {identity.firstName}.</li>
-                <li>I live in {identity.country} and I work as a {identity.occupation}.</li>
-                {identity.hobbies.length >= 2 &&
-                    <li>Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}</li>
-                }
-            </ul>
-            <p>My skills are:</p>
-            <ul>
-                {skills.map((skill) => <li class="skill">{skill}</li>)}
-            </ul>
+        <!-- Text -->
+        <div class="flex flex-col gap-4 flex-1 mb-6 w-full">
+          <span class="font-sans text-sm font-medium tracking-wide uppercase text-md-on-surface-variant">
+            Nossa Jornada
+          </span>
+          <h1 class="text type-headline-medium-emphasized text-md-on-surface lg:type-display-large-emphasized lg:text-[3vw]/[1.1]">
+            Somos os parceiros na transformação digital da educação
+          </h1>
+        </div>
 
-            {happy && <p>I am happy to be learning Astro!</p>}
+        <!-- Image -->
+        <div class="w-full lg:w-[50vw] h-[300px] lg:h-[469px] relative rounded-3xl lg:rounded-2xl overflow-hidden shrink-0">
+          <Image src={imgHero} alt="Equipe Savant Nexus" class="absolute inset-0 w-full h-full object-cover" />
+        </div>
 
-            {finished && <p>I finished this tutorial!</p>}
+      </div>
+    </section>
 
-            {goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>}
-        </BaseLayout>
-	</body>
-</html>
+    <!-- MISSION & VISION SECTION -->
+    <section class="w-full px-4 mb-32">
+      <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 items-center">
+        
+        <!-- Image Left -->
+        <div class="w-full lg:w-1/2 h-[600px] lg:h-[818px] rounded-4xl overflow-hidden relative order-2 lg:order-1">
+          <Image src={imgOffice} alt="Reunião no escritório" class="absolute inset-0 w-full h-full object-cover" />
+        </div>
+
+        <!-- Text Right -->
+        <div class="w-full lg:w-1/2 flex flex-col gap-12 order-1 lg:order-2">
+          
+          <!-- Missão -->
+          <div class="flex flex-col gap-6">
+            <h2 class="font-sans text-[45px] leading-[52px] font-medium text-md-on-surface">Missão</h2>
+            <p class="font-sans text-lg text-md-on-surface-variant leading-relaxed">
+              Fornecer um ecossistema digital integrado e intuitivo para instituições de ensino, otimizando a gestão, enriquecendo a experiência de aprendizagem e fortalecendo a presença digital da academia.
+            </p>
+          </div>
+
+          <!-- Divider (Gradient) -->
+          <div class="w-full h-0.5 bg-linear-to-r from-md-outline-variant to-md-background"></div>
+
+          <!-- Visão -->
+          <div class="flex flex-col gap-6">
+            <h2 class="font-sans text-[45px] leading-[52px] font-medium text-md-on-surface">Visão</h2>
+            <p class="font-sans text-lg text-md-on-surface-variant leading-relaxed">
+              Ser a parceira tecnológica líder na transformação digital do setor educacional, reconhecida pela inovação, usabilidade e pelo impacto real no sucesso do aluno e da instituição.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- TIMELINE SECTION -->
+<section class="w-full px-4 mb-32">
+  <div class="max-w-5xl mx-auto">
+    <div class="relative flex flex-col gap-12 lg:gap-16 pl-0">
+      
+      <div class="absolute top-1 bottom-1 left-8 w-0.5 bg-linear-to-b from-md-surface via-md-outline-variant to-md-surface lg:left-1/2 lg:-translate-x-1/2"></div>
+
+      {timelineEvents.map((event, index) => (
+        <div class={`relative flex flex-col lg:flex-row items-center gap-10 ${index % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}>
+          
+          <div class="flex-1 w-full pl-20 lg:pl-0">
+            <div class="bg-md-surface-container rounded-2xl p-8 relative">
+              
+
+              <span class="block font-sans font-bold text-md-primary mb-2">{event.year}</span>
+              <h3 class="font-sans text-2xl font-medium text-md-on-surface mb-3">{event.title}</h3>
+              <p class="font-sans text-md-on-surface-variant leading-relaxed">{event.desc}</p>
+            </div>
+          </div>
+
+          <div class="absolute left-8.25 top-5/12 -translate-x-1/2 flex items-center justify-center w-8 h-8 z-10 lg:static lg:w-16 lg:h-16 lg:translate-x-0">
+            <div class="w-2 h-2 bg-md-outline-variant rounded-full ring-4 ring-md-surface"></div>
+          </div>
+
+          <div class="flex-1 hidden lg:block"></div>
+        </div>
+      ))}
+
+    </div>
+  </div>
+</section>
+
+    <!-- VALUES SECTION -->
+    <section class="w-full px-4 py-20 mb-32">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="font-sans text-[45px] font-medium text-center text-md-on-surface mb-16">Valores</h2>
+
+        <!-- Grid Layout for Values -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+          <!-- Card 1: Featured (Orange) -->
+          <div class="bg-md-primary-container rounded-4xl p-10 flex flex-col justify-between h-[360px] md:col-span-2 lg:col-span-1">
+            <div class="flex flex-col gap-4">
+              <h3 class="font-sans text-[28px] font-medium text-md-on-primary-container">Ecossistema integrado</h3>
+              <p class="font-sans text-base text-md-on-primary-container/80">
+                Acreditamos que o todo é maior que a soma das partes. Nossos produtos "conversam" nativamente.
+              </p>
+            </div>
+            <div class="w-[72px] h-[72px] bg-md-surface rounded-full flex items-center justify-center">
+               <!-- Icon Placeholder -->
+               <svg class="w-6 h-6 text-md-on-surface" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14 0.75C14.4142 0.75 14.75 1.08579 14.75 1.5V3.25H16.4004C17.1457 3.25021 17.7498 3.85436 17.75 4.59961V5.75H19.5C19.9142 5.75 20.25 6.08579 20.25 6.5C20.25 6.91421 19.9142 7.25 19.5 7.25H17.75V11.25H19.5C19.9142 11.25 20.25 11.5858 20.25 12C20.25 12.4142 19.9142 12.75 19.5 12.75H17.75V16.75H19.5C19.9142 16.75 20.25 17.0858 20.25 17.5C20.25 17.9142 19.9142 18.25 19.5 18.25H17.75V19.4004C17.7498 20.1457 17.1457 20.7498 16.4004 20.75H14.75V22.5C14.75 22.9142 14.4142 23.25 14 23.25C13.5858 23.25 13.25 22.9142 13.25 22.5V20.75H10.75V22.5C10.75 22.9142 10.4142 23.25 10 23.25C9.58579 23.25 9.25 22.9142 9.25 22.5V20.75H7.59961C6.85436 20.7498 6.25021 20.1457 6.25 19.4004V18.25H4.5C4.08579 18.25 3.75 17.9142 3.75 17.5C3.75 17.0858 4.08579 16.75 4.5 16.75H6.25V12.75H4.5C4.08579 12.75 3.75 12.4142 3.75 12C3.75 11.5858 4.08579 11.25 4.5 11.25H6.25V7.25H4.5C4.08579 7.25 3.75 6.91421 3.75 6.5C3.75 6.08579 4.08579 5.75 4.5 5.75H6.25V4.59961C6.25021 3.85434 6.85434 3.25021 7.59961 3.25H9.25V1.5C9.25 1.08579 9.58579 0.75 10 0.75C10.4142 0.75 10.75 1.08579 10.75 1.5V3.25H13.25V1.5C13.25 1.08579 13.5858 0.75 14 0.75ZM7.75 19.25H16.25V4.75H7.75V19.25Z" fill="#221A14"/>
+               </svg>
+
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="bg-md-surface-variant rounded-4xl p-10 flex flex-col justify-between h-[360px] border border-md-outline-variant/20">
+            <div class="flex flex-col gap-4">
+              <h3 class="font-sans text-[28px] font-medium text-md-on-surface">Foco total em UX/UI</h3>
+              <p class="font-sans text-base text-md-on-surface-variant">
+                A usabilidade aumenta a adoção e reduz a evasão. Ela é inegociável.
+              </p>
+            </div>
+            <div class="w-[72px] h-[72px] bg-md-surface rounded-full flex items-center justify-center">
+                <svg class="w-6 h-6 text-md-on-surface" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20.4004 2.25C21.1457 2.25021 21.7498 2.85436 21.75 3.59961V20.4004C21.7498 21.1457 21.1457 21.7498 20.4004 21.75H3.59961C2.85436 21.7498 2.25021 21.1457 2.25 20.4004V3.59961C2.25021 2.85434 2.85434 2.25021 3.59961 2.25H20.4004ZM3.75 20.25H20.25V3.75H3.75V20.25ZM12 5.25C14.0711 5.25 15.75 6.92894 15.75 9C15.75 10.1198 15.2578 11.1234 14.4795 11.8105C16.4139 12.7365 17.75 14.7122 17.75 17V18C17.75 18.4142 17.4142 18.75 17 18.75C16.5858 18.75 16.25 18.4142 16.25 18V17C16.25 14.6528 14.3472 12.75 12 12.75C9.6528 12.75 7.75 14.6528 7.75 17V18C7.75 18.4142 7.41421 18.75 7 18.75C6.58579 18.75 6.25 18.4142 6.25 18V17C6.25 14.7126 7.58552 12.7366 9.51953 11.8105C8.74158 11.1234 8.25 10.1196 8.25 9C8.25 6.92894 9.92888 5.25 12 5.25ZM12 6.75C10.7573 6.75 9.75 7.75736 9.75 9C9.75 10.2427 10.7573 11.25 12 11.25C13.2427 11.25 14.25 10.2427 14.25 9C14.25 7.75736 13.2427 6.75 12 6.75Z" fill="#221A14"/>
+                </svg>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="bg-md-surface-variant rounded-4xl p-10 flex flex-col justify-between h-[360px] border border-md-outline-variant/20">
+            <div class="flex flex-col gap-4">
+              <h3 class="font-sans text-[28px] font-medium text-md-on-surface">Inovação com propósito</h3>
+              <p class="font-sans text-base text-md-on-surface-variant">
+                A tecnologia só importa se impactar positivamente o sucesso do aluno.
+              </p>
+            </div>
+            <div class="w-[72px] h-[72px] bg-md-surface rounded-full flex items-center justify-center">
+                <svg class="w-6 h-6 text-md-on-surface" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16.5361 14.8662C16.9233 14.0452 18.0758 14.0452 18.4629 14.8662L18.4639 14.8652L19.2021 16.4316L20.8408 16.6826C21.7519 16.8219 22.0224 17.9222 21.4385 18.5176L20.2334 19.7441L20.5195 21.4883C20.6523 22.2978 19.8074 23.0869 18.9561 22.6182L17.5 21.8154L16.0439 22.6182C15.1926 23.0869 14.3477 22.2978 14.4805 21.4883L14.7656 19.7441L13.5615 18.5176C12.9776 17.9222 13.2481 16.8219 14.1592 16.6826L15.7969 16.4316L16.5361 14.8652V14.8662ZM16.252 1.25C16.6098 1.25012 16.953 1.39238 17.2061 1.64551L20.3545 4.79395L20.4443 4.89258C20.6412 5.13273 20.7499 5.43485 20.75 5.74805V12C20.75 12.4142 20.4142 12.75 20 12.75C19.5858 12.75 19.25 12.4142 19.25 12V6.75H16.5996C15.8543 6.74979 15.2502 6.14564 15.25 5.40039V2.75H4.75V21.25H11C11.4142 21.25 11.75 21.5858 11.75 22C11.75 22.4142 11.4142 22.75 11 22.75H4.59961C3.85436 22.7498 3.25021 22.1457 3.25 21.4004V2.59961C3.25021 1.85434 3.85434 1.25021 4.59961 1.25H16.252ZM16.9844 17.4336C16.8779 17.6593 16.6656 17.8168 16.4189 17.8545L15.1953 18.041L16.1025 18.9668C16.2699 19.1374 16.3463 19.3775 16.3076 19.6133L16.1006 20.874L17.1387 20.3037L17.2246 20.2627C17.4308 20.1813 17.6642 20.1953 17.8613 20.3037L18.8984 20.874L18.6924 19.6133C18.6537 19.3775 18.7301 19.1374 18.8975 18.9668L19.8037 18.041L18.5811 17.8545C18.3344 17.8168 18.1221 17.6593 18.0156 17.4336L17.5 16.3389L16.9844 17.4336ZM11 13.25C11.4142 13.25 11.75 13.5858 11.75 14C11.75 14.4142 11.4142 14.75 11 14.75H8C7.58579 14.75 7.25 14.4142 7.25 14C7.25 13.5858 7.58579 13.25 8 13.25H11ZM16 9.25C16.4142 9.25 16.75 9.58579 16.75 10C16.75 10.4142 16.4142 10.75 16 10.75H8C7.58579 10.75 7.25 10.4142 7.25 10C7.25 9.58579 7.58579 9.25 8 9.25H16ZM12 5.25C12.4142 5.25 12.75 5.58579 12.75 6C12.75 6.41421 12.4142 6.75 12 6.75H8C7.58579 6.75 7.25 6.41421 7.25 6C7.25 5.58579 7.58579 5.25 8 5.25H12ZM16.75 5.25H18.6895L16.75 3.31055V5.25Z" fill="#221A14"/>
+                </svg>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="bg-md-surface-variant rounded-4xl p-10 flex flex-col justify-between h-[360px] border border-md-outline-variant/20">
+            <div class="flex flex-col gap-4">
+              <h3 class="font-sans text-[28px] font-medium text-md-on-surface">Modularidade e parceria</h3>
+              <p class="font-sans text-base text-md-on-surface-variant">
+                Crescemos com você. Nossos clientes são nossos parceiros estratégicos.
+              </p>
+            </div>
+            <div class="w-[72px] h-[72px] bg-md-surface rounded-full flex items-center justify-center">
+                <svg class="w-6 h-6 text-md-on-surface" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4 9.25C5.51878 9.25 6.75 10.4812 6.75 12C6.75 13.4927 5.56073 14.7037 4.07812 14.7451C4.05242 14.7478 4.02641 14.75 4 14.75C2.75736 14.75 1.75 15.7573 1.75 17V18C1.75 18.4142 1.41421 18.75 1 18.75C0.585786 18.75 0.25 18.4142 0.25 18V17C0.25 15.678 0.934371 14.5164 1.96777 13.8486C1.52312 13.3601 1.25 12.7127 1.25 12C1.25 10.4812 2.48122 9.25 4 9.25ZM4 10.75C3.30964 10.75 2.75 11.3096 2.75 12C2.75 12.6904 3.30964 13.25 4 13.25C4.69036 13.25 5.25 12.6904 5.25 12C5.25 11.3096 4.69036 10.75 4 10.75Z" fill="#221A14"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 5.25C14.0711 5.25 15.75 6.92894 15.75 9C15.75 10.1198 15.2578 11.1234 14.4795 11.8105C16.4139 12.7365 17.75 14.7122 17.75 17V18C17.75 18.4142 17.4142 18.75 17 18.75C16.5858 18.75 16.25 18.4142 16.25 18V17C16.25 14.6528 14.3472 12.75 12 12.75C9.6528 12.75 7.75 14.6528 7.75 17V18C7.75 18.4142 7.41421 18.75 7 18.75C6.58579 18.75 6.25 18.4142 6.25 18V17C6.25 14.7126 7.58552 12.7366 9.51953 11.8105C8.74158 11.1234 8.25 10.1196 8.25 9C8.25 6.92894 9.92888 5.25 12 5.25ZM12 6.75C10.7573 6.75 9.75 7.75736 9.75 9C9.75 10.2427 10.7573 11.25 12 11.25C13.2427 11.25 14.25 10.2427 14.25 9C14.25 7.75736 13.2427 6.75 12 6.75Z" fill="#221A14"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M20 9.25C21.5188 9.25 22.75 10.4812 22.75 12C22.75 12.7129 22.4762 13.36 22.0312 13.8486C23.065 14.5163 23.75 15.6777 23.75 17V18C23.75 18.4142 23.4142 18.75 23 18.75C22.5858 18.75 22.25 18.4142 22.25 18V17C22.25 15.7573 21.2427 14.75 20 14.75C19.9733 14.75 19.9469 14.7478 19.9209 14.7451C18.4387 14.7032 17.25 13.4923 17.25 12C17.25 10.4812 18.4812 9.25 20 9.25ZM20 10.75C19.3096 10.75 18.75 11.3096 18.75 12C18.75 12.6904 19.3096 13.25 20 13.25C20.6904 13.25 21.25 12.6904 21.25 12C21.25 11.3096 20.6904 10.75 20 10.75Z" fill="#221A14"/>
+                </svg>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM SECTION -->
+    <section class="w-full px-4 mb-32">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="font-sans text-[45px] font-medium text-md-on-surface mb-12">Os arquitetos do ecossistema</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {teamMembers.map((member) => (
+            <div class="flex flex-col gap-4 group">
+              <!-- Image Card -->
+              <div class="bg-md-surface-dim rounded-2xl p-8 flex items-center justify-center relative overflow-hidden transition-transform group-hover:-translate-y-1 duration-300">
+                <div class="bg-md-surface-container relative w-[156px] h-[156px] rounded-full overflow-hidden z-10">
+                  <Image src={member.img} alt={member.name} class="w-full h-full object-cover" />
+                </div>
+                
+                <!-- Decorative Circle (Abstract) -->
+                <div class="absolute top-4 left-4 w-14 h-14 rounded-full bg-md-primary/20 z-0"></div>
+                <div class="absolute bottom-4 right-4 w-20 h-20 rounded-full bg-md-secondary-container/30 z-0"></div>
+              </div>
+
+              <!-- Info -->
+              <div class="flex flex-col">
+                <h3 class="font-sans text-2xl font-medium text-md-on-surface">{member.name}</h3>
+                <p class="font-sans text-base text-md-on-surface-variant">{member.role}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+</Layout>
+
+<style>
+  /* Animação para a navbar */
+  @keyframes fade-in {
+    from { opacity: 0; transform: translate(-50%, -20px); }
+    to { opacity: 1; transform: translate(-50%, 0); }
+  }
+  .animate-fade-in {
+    animation: fade-in 0.6s ease-out forwards;
+  }
+</style>
