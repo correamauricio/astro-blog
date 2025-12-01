@@ -2,7 +2,7 @@
 import '../styles/global.css';
 
 interface Props {
-  variant?: 'tonal' | 'secondary' | 'outline' | 'danger';
+  variant?: 'tonal' | 'elevated' | 'secondary' | 'outline' | 'danger';
   size?: 'sm' | 'md' | 'lg';
   href?: string; 
   class?: string; 
@@ -19,13 +19,14 @@ const {
 
 const variants = {
   tonal: "bg-md-secondary-container text-md-on-secondary-container focus:before:opacity-10 before:absolute before:inset-0 before:bg-md-on-secondary-container before:opacity-0 hover:before:opacity-8 active:before:opacity-12",
+  elevated: "bg-md-surface-container-low text-md-primary focus:before:opacity-10 before:absolute before:inset-0 before:bg-md-primary before:opacity-0 hover:before:opacity-8 active:before:opacity-12 shadow-md",
   secondary: "bg-gray-800 text-white hover:bg-gray-900 focus:ring-gray-500",
   outline: "bg-transparent border border-gray-300 text-gray-700 hover:bg-gray-50 focus:ring-gray-500",
   danger: "bg-red-600 text-white hover:bg-red-700 focus:ring-red-500",
 };
 
 const sizes = {
-  sm: "px-3 py-1.5 text-sm",
+  sm: "px-4 py-2.5 type-label-large",
   md: "px-6 py-4 type-title-medium",
   lg: "px-12 py-8 type-headline-small", 
 };

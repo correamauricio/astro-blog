@@ -136,3 +136,10 @@
   font-weight: 500;
   letter-spacing: 0.5px;
 }
+
+@utility type-label-large {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  letter-spacing: 0.1px;
+}

@@ -1,0 +1,99 @@
+---
+import { Image } from "astro:assets";
+import imgProduct from "../.././assets/MainProduct1.png";
+import imgProduct1 from "../.././assets/MainProduct2.png"; 
+import MdButton from "../MdButton.astro";
+
+---
+  <div class="relative w-full min-h-screen" data-name="Presentation">
+    <div class="flex flex-col justify-center w-full h-full py-10 px-6">
+      
+      <div class="box-border flex flex-col gap-6 items-start justify-center px-2 py-0 relative w-full max-w-7xl mx-auto">
+        
+        <header class="flex flex-col font-sans font-medium gap-2 items-center relative shrink-0 text-center w-full" data-name="Title">
+          <p class="leading-4 relative shrink-0 text-md-on-surface-variant text-[11px] tracking-[0.5px] w-full uppercase">
+            NOSSOS PRODUTOS
+          </p>
+          <h1 class="leading-9 relative shrink-0 text-md-on-surface text-[28px] w-full">
+            Uma plataforma. Pilares de sucesso.
+          </h1>
+        </header>
+
+        <main class="flex flex-col gap-6 items-start justify-center relative shrink-0 w-full lg:flex-row">
+          
+          <article class="h-[600px] relative rounded-4xl shrink-0 w-full lg:w-1/2 overflow-hidden bg-[#020100]" data-name="Product">
+            
+            <div aria-hidden="true" class="absolute inset-0 pointer-events-none">
+              <div class="absolute inset-0 overflow-hidden rounded-4xl">
+                <Image 
+                  alt="Interface Nexus SIS" 
+                  class="absolute h-[60.5%] left-[-20.35%] max-w-none top-[39.5%] w-[140.7%] object-cover" 
+                  src={imgProduct} 
+                />
+              </div>
+            </div>
+
+            <div class="box-border flex flex-col gap-4 h-full items-start p-10 relative w-full z-10">
+              
+              <div class="flex flex-col font-sans font-medium gap-2 items-start relative shrink-0 text-white w-full">
+                <p class="leading-4 text-[11px] tracking-[0.5px] uppercase opacity-90">
+                  NEXUS SIS, ANALYTICS e ADMISSIONS
+                </p>
+                <h2 class="leading-7 text-[22px]">
+                  Gestão acadêmica e administrativa
+                </h2>
+              </div>
+
+              <p class="font-sans font-normal leading-5 text-[14px] text-white tracking-[0.25px] max-w-md">
+                Otimize 100% da sua operação, da matrícula ao financeiro, com nosso SIS, Analytics preditivo e sistema de captação de alunos.
+              </p>
+
+              <div class="flex h-12 items-center justify-center relative shrink-0 sm:mt-0">
+                <MdButton size="sm" variant="tonal">
+                    Conhecer produtos
+                </MdButton>
+              </div>
+
+            </div>
+          </article>
+
+          <article class="h-[600px] relative rounded-4xl shrink-0 w-full lg:w-1/2 overflow-hidden bg-md-primary-container" data-name="Product">
+             
+            <div aria-hidden="true" class="absolute inset-0 pointer-events-none">
+              <div class="absolute inset-0 overflow-hidden rounded-4xl">
+                <Image 
+                  alt="Interface Nexus Engage" 
+                  class="absolute h-[80%] left-[0%] max-w-none top-[35%] w-[110%] object-cover" 
+                  src={imgProduct1}
+                />
+              </div>
+            </div>
+
+            <div class="box-border flex flex-col gap-4 h-full items-start p-10 relative w-full z-10">
+              
+              <div class="flex flex-col font-sans font-medium gap-2 items-start relative shrink-0 text-md-on-primary-container w-full">
+                <p class="leading-4 text-[11px] tracking-[0.5px] uppercase opacity-90">
+                  NEXUS ENGAGE, LMS e CONNECT
+                </p>
+                <h2 class="leading-7 text-[22px]">
+                  Engajamento e aprendizagem
+                </h2>
+              </div>
+
+              <p class="font-sans font-normal leading-5 text-[14px] text-md-on-primary-container tracking-[0.25px] max-w-md">
+                Aumente a retenção de alunos com nosso LMS moderno, portal unificado e uma plataforma de gamificação inspirada no Duolingo.
+              </p>
+
+              <div class="flex h-12 items-center justify-center relative shrink-0 sm:mt-0">
+                <MdButton size="sm" variant="elevated">
+                    Conhecer produtos
+                </MdButton>
+              </div>
+
+            </div>
+          </article>
+
+        </main>
+      </div>
+    </div>
+  </div>
