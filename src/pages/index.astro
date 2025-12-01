@@ -1,8 +1,30 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-const pageTitle = "Home Page";
+import MdButton from '../components/MdButton.astro';
+import { Image } from 'astro:assets';
 import '../styles/global.css';
+import Logo from '../components/Logo.astro';
+import heroImg from '../assets/HeroImage.png';
 ---
-<BaseLayout pageTitle={pageTitle}>
-  <h2>My awesome blog subtitle</h2>
+<BaseLayout>
+
+    <div class="m-2 mb-0 py-8 px-3 h-[720px] rounded-4xl flex flex-col justify-end items-center gap-6 text-center relative overflow-hidden md:p-8 md:py-32 md:items-start md:text-left md:gap-16 md:m-6">
+      <div class="flex flex-col gap-6 items-center md:gap-8 md:items-start">
+        <Logo color='var(--color-md-on-primary-fixed)' size="24" class="grow-0"/>
+        <h1 class="type-headline-medium-emphasized text-md-on-primary-fixed md:type-display-large-emphasized md:max-w-[720px]">O ecossistema digital para a educação do futuro</h1>
+      </div>
+      <MdButton variant="tonal" size="md">Solicite uma demonstração</MdButton>
+      <Image 
+        src={heroImg} 
+        alt="Descrição do fundo"
+        class="absolute h-full left-[-154.73%] max-w-none top-0 w-[313.91%] object-cover md:hidden -z-20"
+      />
+      <Image 
+        src={heroImg} 
+        alt="Descrição do fundo"
+        class="hidden md:block absolute inset-0 size-full object-cover object-center -z-20"
+      />
+      <div class="absolute bg-linear-to-b from-44% from-[rgba(255,255,255,0)] inset-0 rounded-4xl to-72% to-[rgba(255,255,255,0.8)] md:hidden -z-10" /></div>
+    </div>
+
 </BaseLayout>
