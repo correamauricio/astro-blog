@@ -2,7 +2,6 @@
 import Layout from '../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
 
-// Placeholders para imagens (substitua pelos assets reais do projeto)
 import imgHero from "../assets/AboutImage.png";
 import imgOffice from "../assets/CompanyValues.png";
 import imgEmployee1 from "../assets/Avatar1.png";
@@ -12,7 +11,6 @@ import imgEmployee4 from "../assets/Avatar4.png";
 import imgEmployee5 from "../assets/Avatar5.png";
 import imgEmployee6 from "../assets/Avatar6.png";
 
-// Dados da Equipe
 const teamMembers = [
   { name: "Brenda Jacques", role: "CEO (Chief Executive Officer)", img: imgEmployee6 },
   { name: "Maurício Correa", role: "CTO (Chief Technology Officer)", img: imgEmployee5 },
@@ -22,7 +20,6 @@ const teamMembers = [
   { name: "Olga Brentano", role: "Arquiteta de Software Educacional", img: imgEmployee1 },
 ];
 
-// Dados da Timeline
 const timelineEvents = [
   { year: "2018", title: "O ponto de virada", desc: "Nascemos da frustração com a tecnologia educacional obsoleta. Vimos coordenadores perdidos em planilhas e dados valiosos sobre evasão sendo ignorados." },
   { year: "2019", title: "A nossa missão", desc: "Decidimos construir a plataforma que sempre sonhamos: onde a tecnologia não é uma barreira, mas a ponte. O foco é um design intuitivo e dados que geram ações." },
@@ -34,11 +31,9 @@ const timelineEvents = [
 
   <main class="w-full bg-md-surface overflow-hidden">
     
-    <!-- HERO SECTION -->
     <section class="w-full p-2 lg:p-6 mb-20">
       <div class=" mx-auto bg-md-surface-variant rounded-4xl p-2 pt-32 lg:p-6 lg:pt-32 flex flex-col lg:flex-row items-end gap-10 lg:gap-20">
         
-        <!-- Text -->
         <div class="flex flex-col gap-4 flex-1 mb-6 w-full">
           <span class="font-sans text-sm font-medium tracking-wide uppercase text-md-on-surface-variant">
             Nossa Jornada
@@ -48,7 +43,6 @@ const timelineEvents = [
           </h1>
         </div>
 
-        <!-- Image -->
         <div class="w-full lg:w-[50vw] h-[300px] lg:h-[469px] relative rounded-3xl lg:rounded-2xl overflow-hidden shrink-0">
           <Image src={imgHero} alt="Equipe Savant Nexus" class="absolute inset-0 w-full h-full object-cover" />
         </div>
@@ -56,19 +50,15 @@ const timelineEvents = [
       </div>
     </section>
 
-    <!-- MISSION & VISION SECTION -->
     <section class="w-full px-4 mb-32">
       <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 items-center">
         
-        <!-- Image Left -->
         <div class="w-full lg:w-1/2 h-[600px] lg:h-[818px] rounded-4xl overflow-hidden relative order-2 lg:order-1">
           <Image src={imgOffice} alt="Reunião no escritório" class="absolute inset-0 w-full h-full object-cover" />
         </div>
 
-        <!-- Text Right -->
         <div class="w-full lg:w-1/2 flex flex-col gap-12 order-1 lg:order-2">
           
-          <!-- Missão -->
           <div class="flex flex-col gap-6">
             <h2 class="font-sans text-[45px] leading-[52px] font-medium text-md-on-surface">Missão</h2>
             <p class="font-sans text-lg text-md-on-surface-variant leading-relaxed">
@@ -76,10 +66,8 @@ const timelineEvents = [
             </p>
           </div>
 
-          <!-- Divider (Gradient) -->
           <div class="w-full h-0.5 bg-linear-to-r from-md-outline-variant to-md-background"></div>
 
-          <!-- Visão -->
           <div class="flex flex-col gap-6">
             <h2 class="font-sans text-[45px] leading-[52px] font-medium text-md-on-surface">Visão</h2>
             <p class="font-sans text-lg text-md-on-surface-variant leading-relaxed">
@@ -91,7 +79,6 @@ const timelineEvents = [
       </div>
     </section>
 
-    <!-- TIMELINE SECTION -->
 <section class="w-full px-4 mb-32">
   <div class="max-w-5xl mx-auto">
     <div class="relative flex flex-col gap-12 lg:gap-16 pl-0">
@@ -123,15 +110,12 @@ const timelineEvents = [
   </div>
 </section>
 
-    <!-- VALUES SECTION -->
     <section class="w-full px-4 py-20 mb-32">
       <div class="max-w-7xl mx-auto">
         <h2 class="font-sans text-[45px] font-medium text-center text-md-on-surface mb-16">Valores</h2>
 
-        <!-- Grid Layout for Values -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           
-          <!-- Card 1: Featured (Orange) -->
           <div class="bg-md-primary-container rounded-4xl p-10 flex flex-col justify-between h-[360px] md:col-span-2 lg:col-span-1">
             <div class="flex flex-col gap-4">
               <h3 class="font-sans text-[28px] font-medium text-md-on-primary-container">Ecossistema integrado</h3>
@@ -140,7 +124,6 @@ const timelineEvents = [
               </p>
             </div>
             <div class="w-[72px] h-[72px] bg-md-surface rounded-full flex items-center justify-center">
-               <!-- Icon Placeholder -->
                <svg class="w-6 h-6 text-md-on-surface" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M14 0.75C14.4142 0.75 14.75 1.08579 14.75 1.5V3.25H16.4004C17.1457 3.25021 17.7498 3.85436 17.75 4.59961V5.75H19.5C19.9142 5.75 20.25 6.08579 20.25 6.5C20.25 6.91421 19.9142 7.25 19.5 7.25H17.75V11.25H19.5C19.9142 11.25 20.25 11.5858 20.25 12C20.25 12.4142 19.9142 12.75 19.5 12.75H17.75V16.75H19.5C19.9142 16.75 20.25 17.0858 20.25 17.5C20.25 17.9142 19.9142 18.25 19.5 18.25H17.75V19.4004C17.7498 20.1457 17.1457 20.7498 16.4004 20.75H14.75V22.5C14.75 22.9142 14.4142 23.25 14 23.25C13.5858 23.25 13.25 22.9142 13.25 22.5V20.75H10.75V22.5C10.75 22.9142 10.4142 23.25 10 23.25C9.58579 23.25 9.25 22.9142 9.25 22.5V20.75H7.59961C6.85436 20.7498 6.25021 20.1457 6.25 19.4004V18.25H4.5C4.08579 18.25 3.75 17.9142 3.75 17.5C3.75 17.0858 4.08579 16.75 4.5 16.75H6.25V12.75H4.5C4.08579 12.75 3.75 12.4142 3.75 12C3.75 11.5858 4.08579 11.25 4.5 11.25H6.25V7.25H4.5C4.08579 7.25 3.75 6.91421 3.75 6.5C3.75 6.08579 4.08579 5.75 4.5 5.75H6.25V4.59961C6.25021 3.85434 6.85434 3.25021 7.59961 3.25H9.25V1.5C9.25 1.08579 9.58579 0.75 10 0.75C10.4142 0.75 10.75 1.08579 10.75 1.5V3.25H13.25V1.5C13.25 1.08579 13.5858 0.75 14 0.75ZM7.75 19.25H16.25V4.75H7.75V19.25Z" fill="#221A14"/>
                </svg>
@@ -148,7 +131,6 @@ const timelineEvents = [
             </div>
           </div>
 
-          <!-- Card 2 -->
           <div class="bg-md-surface-variant rounded-4xl p-10 flex flex-col justify-between h-[360px] border border-md-outline-variant/20">
             <div class="flex flex-col gap-4">
               <h3 class="font-sans text-[28px] font-medium text-md-on-surface">Foco total em UX/UI</h3>
@@ -163,7 +145,6 @@ const timelineEvents = [
             </div>
           </div>
 
-          <!-- Card 3 -->
           <div class="bg-md-surface-variant rounded-4xl p-10 flex flex-col justify-between h-[360px] border border-md-outline-variant/20">
             <div class="flex flex-col gap-4">
               <h3 class="font-sans text-[28px] font-medium text-md-on-surface">Inovação com propósito</h3>
@@ -178,7 +159,6 @@ const timelineEvents = [
             </div>
           </div>
 
-          <!-- Card 4 -->
           <div class="bg-md-surface-variant rounded-4xl p-10 flex flex-col justify-between h-[360px] border border-md-outline-variant/20">
             <div class="flex flex-col gap-4">
               <h3 class="font-sans text-[28px] font-medium text-md-on-surface">Modularidade e parceria</h3>
@@ -199,7 +179,6 @@ const timelineEvents = [
       </div>
     </section>
 
-    <!-- TEAM SECTION -->
     <section class="w-full px-4 mb-32">
       <div class="max-w-7xl mx-auto">
         <h2 class="font-sans text-[45px] font-medium text-md-on-surface mb-12">Os arquitetos do ecossistema</h2>
@@ -234,7 +213,6 @@ const timelineEvents = [
 </Layout>
 
 <style>
-  /* Animação para a navbar */
   @keyframes fade-in {
     from { opacity: 0; transform: translate(-50%, -20px); }
     to { opacity: 1; transform: translate(-50%, 0); }

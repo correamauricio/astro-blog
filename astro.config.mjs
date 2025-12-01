@@ -1,9 +1,11 @@
-import { defineConfig } from "astro/config";
-import tailwind from "@tailwindcss/vite";
+import { defineConfig } from 'astro/config';
+
+const isNetlify = process.env.NETLIFY === 'true';
 
 export default defineConfig({
-  site: "https://savantnexus.netlify.app",
-  vite: {
-    plugins: [tailwind()],
-  },
+  site: isNetlify 
+    ? 'https://savantnexus.netlify.app' 
+    : 'https://correamauricio.github.io',
+
+  base: isNetlify ? '/' : '/astro-blog',
 });
