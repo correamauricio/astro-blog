@@ -66,37 +66,53 @@ const { variant = "filled", size = "md", msg } = Astro.props;
             
             <form id="contact-form" class="flex flex-col gap-6 transition-opacity duration-300">
               
-              <div class="flex flex-col gap-2">
+              <div class="flex flex-col gap-2 relative">
                 <label for="name" class="font-sans text-[16px] text-md-on-surface-variant">Nome completo *</label>
-                <input required type="text" id="name" placeholder="Digite seu nome e sobrenome" class="w-full h-14 px-4 rounded-2xl border border-md-outline bg-transparent text-md-on-surface placeholder:text-md-outline focus:border-md-primary focus:outline-none transition-colors invalid:border-red-400 focus:invalid:border-red-500" />
+                <input required type="text" id="name" placeholder="Digite seu nome e sobrenome" 
+                       class="validate-input w-full h-14 px-4 rounded-2xl border border-md-outline bg-transparent text-md-on-surface placeholder:text-md-outline focus:border-md-primary focus:outline-none transition-colors" />
+                
+                <span class="error-msg text-red-500 text-sm font-medium mt-1 hidden">
+                  Por favor, informe seu nome completo.
+                </span>
               </div>
 
-              <div class="flex flex-col gap-2">
+              <div class="flex flex-col gap-2 relative">
                 <label for="email" class="font-sans text-[16px] text-md-on-surface-variant">E-mail *</label>
-                <input required type="email" id="email" placeholder="seuemail@exemplo.com" class="w-full h-14 px-4 rounded-2xl border border-md-outline bg-transparent text-md-on-surface placeholder:text-md-outline focus:border-md-primary focus:outline-none transition-colors invalid:border-red-400 focus:invalid:border-red-500" />
+                <input required type="email" id="email" placeholder="seuemail@exemplo.com" 
+                       class="validate-input w-full h-14 px-4 rounded-2xl border border-md-outline bg-transparent text-md-on-surface placeholder:text-md-outline focus:border-md-primary focus:outline-none transition-colors" />
+                
+                <span class="error-msg text-red-500 text-sm font-medium mt-1 hidden">
+                  Insira um e-mail válido (ex: nome@dominio.com).
+                </span>
               </div>
 
-              <div class="flex flex-col gap-2">
+              <div class="flex flex-col gap-2 relative">
                 <label for="company" class="font-sans text-[16px] text-md-on-surface-variant">Empresa</label>
-                <input type="text" id="company" placeholder="Digite onde você trabalha" class="w-full h-14 px-4 rounded-2xl border border-md-outline bg-transparent text-md-on-surface placeholder:text-md-outline focus:border-md-primary focus:outline-none transition-colors" />
+                <input type="text" id="company" placeholder="Digite onde você trabalha" 
+                       class="validate-input w-full h-14 px-4 rounded-2xl border border-md-outline bg-transparent text-md-on-surface placeholder:text-md-outline focus:border-md-primary focus:outline-none transition-colors" />
               </div>
 
-              <div class="flex flex-col gap-2">
+              <div class="flex flex-col gap-2 relative">
                 <label for="subject" class="font-sans text-[16px] text-md-on-surface-variant">Assunto *</label>
-                <input required type="text" id="subject" placeholder="Digite sua mensagem" class="w-full h-14 px-4 rounded-2xl border border-md-outline bg-transparent text-md-on-surface placeholder:text-md-outline focus:border-md-primary focus:outline-none transition-colors invalid:border-red-400 focus:invalid:border-red-500" />
+                <input required type="text" id="subject" placeholder="Digite sua mensagem" 
+                       class="validate-input w-full h-14 px-4 rounded-2xl border border-md-outline bg-transparent text-md-on-surface placeholder:text-md-outline focus:border-md-primary focus:outline-none transition-colors" />
+                
+                <span class="error-msg text-red-500 text-sm font-medium mt-1 hidden">
+                  O assunto é obrigatório.
+                </span>
               </div>
 
               <button type="submit" id="submit-btn" class="mt-4 w-full h-14 rounded-full bg-md-primary-container hover:brightness-95 transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed">
-                <span class="font-sans font-medium text-[16px] text-md-on-primary-container tracking-wide uppercase">Enviar</span>
+                <span class="font-sans font-medium text-[16px] text-md-on-primary-container tracking-wide">Enviar</span>
               </button>
             </form>
 
-            <div id="success-message" class="hidden flex-col items-center justify-center gap-6 h-full min-h-[400px] animate-fade-in">
+            <div id="success-message" class="hidden flex-col gap-6 h-full min-h-[400px] animate-fade-in">
                 <div class="w-20 h-20 rounded-full bg-green-100 text-green-600 flex items-center justify-center">
                     <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                 </div>
-                <h3 class="font-medium text-[32px] text-md-on-surface text-center">Mensagem Enviada!</h3>
-                <p class="text-md-on-surface-variant text-center max-w-sm">Obrigado pelo contato. Recebemos seus dados e retornaremos em breve.</p>
+                <h3 class="font-medium text-[32px] text-md-on-surface">Mensagem enviada!</h3>
+                <p class="text-md-on-surface-variant max-w-sm">Obrigado pelo contato. Recebemos seus dados e retornaremos em breve.</p>
                 
                 <button id="reset-form-btn" class="mt-4 px-8 h-12 rounded-full border border-md-outline text-md-on-surface hover:bg-md-surface-variant transition-colors">
                     Enviar outra mensagem
@@ -115,49 +131,56 @@ const { variant = "filled", size = "md", msg } = Astro.props;
 <script>
   const dialog = document.getElementById('contact-dialog');
   const openButton = document.getElementById('open-contact-modal');
-  
-  // Elementos do formulário
   const form = document.getElementById('contact-form') as HTMLFormElement;
+  const inputs = document.querySelectorAll('.validate-input');
   const successMessage = document.getElementById('success-message');
   const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
   const resetBtn = document.getElementById('reset-form-btn');
-
-  // Lógica de Envio
+  inputs.forEach((input) => {
+    const inputElement = input as HTMLInputElement;
+    inputElement.addEventListener('blur', () => {
+       inputElement.classList.add('touched');
+       checkValidity(inputElement);
+    });
+    inputElement.addEventListener('input', () => {
+       if (inputElement.classList.contains('touched')) {
+         checkValidity(inputElement);
+       }
+    });
+  });
+  function checkValidity(input: HTMLInputElement) {
+  }
   form?.addEventListener('submit', (e) => {
-    e.preventDefault(); // Impede o reload da página
-
-    // Simula carregamento
+    e.preventDefault();
+    inputs.forEach(input => input.classList.add('touched'));
+    if (!form.checkValidity()) {
+        return;
+    }
     const originalText = submitBtn.innerText;
     submitBtn.innerText = 'Enviando...';
     submitBtn.disabled = true;
-
-    // Simula delay de rede (1.5 segundos)
     setTimeout(() => {
-        // Esconde form, mostra sucesso
         form.classList.add('hidden');
         successMessage?.classList.remove('hidden');
         successMessage?.classList.add('flex');
         
-        // Reseta o botão para a próxima vez
         submitBtn.innerText = originalText;
         submitBtn.disabled = false;
+        
         form.reset();
+        inputs.forEach(input => input.classList.remove('touched'));
     }, 1500);
   });
-
-  // Botão "Enviar outra mensagem" dentro da tela de sucesso
   resetBtn?.addEventListener('click', () => {
     resetFormView();
   });
-
-  // Função para voltar ao estado inicial do form
   function resetFormView() {
     successMessage?.classList.add('hidden');
     successMessage?.classList.remove('flex');
     form?.classList.remove('hidden');
   }
 
-  // --- Lógica do Modal Existente ---
+
 
   openButton?.addEventListener('click', () => {
     // @ts-ignore
@@ -167,7 +190,6 @@ const { variant = "filled", size = "md", msg } = Astro.props;
 
   dialog?.addEventListener('close', () => {
     document.body.style.overflow = '';
-    // Opcional: Resetar o formulário quando fechar o modal, para ele abrir "limpo" na próxima vez
     setTimeout(resetFormView, 300); 
   });
 
@@ -189,4 +211,22 @@ const { variant = "filled", size = "md", msg } = Astro.props;
   .scrollbar-rounded::-webkit-scrollbar-track { background: transparent; margin-block: 2rem; }
   .scrollbar-rounded::-webkit-scrollbar-thumb { background-color: var(--color-md-outline-variant); border-radius: 99px; }
   .scrollbar-rounded::-webkit-scrollbar-thumb:hover { background-color: var(--color-md-outline); }
+
+    input.touched:invalid {
+    border-color: var(--color-md-error);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23ef4444'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linecap='round' d='M5.8 3.6h.4L6 6.5zM6 8.2a.3.3 0 110-.6.3.3 0 010 .6z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1.5rem 1.5rem;
+    padding-right: 2.5rem;
+  }
+
+  input.touched:invalid + .error-msg {
+    display: block;
+    animation: slideDown 0.2s ease-out;
+  }
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 </style>
