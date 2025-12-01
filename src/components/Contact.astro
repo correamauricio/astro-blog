@@ -1,0 +1,192 @@
+---
+import MdButton from "./MdButton.astro";
+
+const { variant = "filled", size = "md", msg } = Astro.props;
+---
+<MdButton 
+  id="open-contact-modal"
+  variant={variant} 
+  size={size}
+>{msg}</MdButton>
+
+<dialog id="contact-dialog" class="bg-transparent p-0 w-full max-w-[1400px] h-full max-h-screen backdrop:bg-black/50 backdrop:backdrop-blur-sm m-auto open:animate-fade-in" closedby="any">
+  
+  <div class="relative w-full h-full flex flex-col items-center justify-center p-4">
+    
+    <div class="w-full flex justify-center mb-4">
+      <form method="dialog">
+        <button class="group flex items-center gap-2 bg-md-surface-container/80 backdrop-blur-md px-3 py-2 rounded-full hover:bg-md-surface-container transition-colors cursor-pointer">
+          <span class=" w-10 h-10 flex items-center justify-center">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16.7129 6.2276C17.0058 5.93477 17.4806 5.93473 17.7734 6.2276C18.0661 6.52049 18.0662 6.99532 17.7734 7.28814L13.0615 12.0001L17.7734 16.7129C18.066 17.0059 18.0662 17.4807 17.7734 17.7735C17.4806 18.066 17.0057 18.066 16.7129 17.7735L12 13.0616L7.28809 17.7735C6.99524 18.0659 6.52032 18.066 6.22754 17.7735C5.93477 17.4807 5.93502 17.0059 6.22754 16.7129L10.9385 12.0001L6.22754 7.28814C5.93475 6.99536 5.93497 6.52052 6.22754 6.2276C6.52043 5.9347 6.99519 5.9347 7.28809 6.2276L12 10.9385L16.7129 6.2276Z" fill="#221A14"/>
+            </svg>
+          </span>
+        </button>
+      </form>
+    </div>
+
+    <div class="scrollbar-rounded bg-md-surface rounded-4xl w-full overflow-y-auto max-h-[90vh] shadow-2xl relative">
+      <div class="flex flex-col items-center p-8 lg:p-20 gap-10">
+        
+        <header class="w-full flex flex-col lg:flex-row items-end gap-10 lg:gap-20 justify-between">
+          <p class="font-sans font-normal text-[22px] leading-7 text-md-on-surface w-full">
+            Explore as ferramentas modulares da Savant Nexus. Elas se destacam integradas, criando um fluxo contínuo.
+          </p>
+          <h2 class="font-medium text-[40px] lg:type-display-large-emphasized text-md-on-surface w-full">
+            Vamos Conversar?
+          </h2>
+        </header>
+
+        <div class="w-full flex flex-col lg:flex-row gap-10 lg:gap-20 items-start mt-8">
+          
+          <div class="flex flex-col justify-between h-full gap-10 flex-1 mt-auto">
+             <div class="flex gap-4">
+               <a href="#" class="w-10 h-10 flex items-center justify-center rounded-lg border border-md-outline-variant hover:bg-md-surface-variant transition-colors text-md-on-surface">
+                   <svg class="size-[18px] fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+               </a>
+               <a href="#" class="w-10 h-10 flex items-center justify-center rounded-lg border border-md-outline-variant hover:bg-md-surface-variant transition-colors text-md-on-surface">
+                   <svg class="size-[18px] fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+               </a>
+               <a href="#" class="w-10 h-10 flex items-center justify-center rounded-lg border border-md-outline-variant hover:bg-md-surface-variant transition-colors text-md-on-surface">
+                   <svg class="size-[18px] fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+               </a>
+               <a href="#" class="w-10 h-10 flex items-center justify-center rounded-lg border border-md-outline-variant hover:bg-md-surface-variant transition-colors text-md-on-surface">
+                   <svg class="size-[18px] fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+               </a>
+            </div>
+
+            <div class="flex flex-col gap-2 font-sans text-[16px] text-md-on-surface-variant">
+              <p>comercial@savantnexus.com</p>
+              <p>+55 (11) 5555-1234</p>
+              <p>Av. da Inovação, 1000, Sala 501 - TechPark, São Paulo/SP</p>
+            </div>
+          </div>
+
+          <div class="w-full lg:max-w-xl flex-1">
+            
+            <form id="contact-form" class="flex flex-col gap-6 transition-opacity duration-300">
+              
+              <div class="flex flex-col gap-2">
+                <label for="name" class="font-sans text-[16px] text-md-on-surface-variant">Nome completo *</label>
+                <input required type="text" id="name" placeholder="Digite seu nome e sobrenome" class="w-full h-14 px-4 rounded-2xl border border-md-outline bg-transparent text-md-on-surface placeholder:text-md-outline focus:border-md-primary focus:outline-none transition-colors invalid:border-red-400 focus:invalid:border-red-500" />
+              </div>
+
+              <div class="flex flex-col gap-2">
+                <label for="email" class="font-sans text-[16px] text-md-on-surface-variant">E-mail *</label>
+                <input required type="email" id="email" placeholder="seuemail@exemplo.com" class="w-full h-14 px-4 rounded-2xl border border-md-outline bg-transparent text-md-on-surface placeholder:text-md-outline focus:border-md-primary focus:outline-none transition-colors invalid:border-red-400 focus:invalid:border-red-500" />
+              </div>
+
+              <div class="flex flex-col gap-2">
+                <label for="company" class="font-sans text-[16px] text-md-on-surface-variant">Empresa</label>
+                <input type="text" id="company" placeholder="Digite onde você trabalha" class="w-full h-14 px-4 rounded-2xl border border-md-outline bg-transparent text-md-on-surface placeholder:text-md-outline focus:border-md-primary focus:outline-none transition-colors" />
+              </div>
+
+              <div class="flex flex-col gap-2">
+                <label for="subject" class="font-sans text-[16px] text-md-on-surface-variant">Assunto *</label>
+                <input required type="text" id="subject" placeholder="Digite sua mensagem" class="w-full h-14 px-4 rounded-2xl border border-md-outline bg-transparent text-md-on-surface placeholder:text-md-outline focus:border-md-primary focus:outline-none transition-colors invalid:border-red-400 focus:invalid:border-red-500" />
+              </div>
+
+              <button type="submit" id="submit-btn" class="mt-4 w-full h-14 rounded-full bg-md-primary-container hover:brightness-95 transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed">
+                <span class="font-sans font-medium text-[16px] text-md-on-primary-container tracking-wide uppercase">Enviar</span>
+              </button>
+            </form>
+
+            <div id="success-message" class="hidden flex-col items-center justify-center gap-6 h-full min-h-[400px] animate-fade-in">
+                <div class="w-20 h-20 rounded-full bg-green-100 text-green-600 flex items-center justify-center">
+                    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <h3 class="font-medium text-[32px] text-md-on-surface text-center">Mensagem Enviada!</h3>
+                <p class="text-md-on-surface-variant text-center max-w-sm">Obrigado pelo contato. Recebemos seus dados e retornaremos em breve.</p>
+                
+                <button id="reset-form-btn" class="mt-4 px-8 h-12 rounded-full border border-md-outline text-md-on-surface hover:bg-md-surface-variant transition-colors">
+                    Enviar outra mensagem
+                </button>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<script>
+  const dialog = document.getElementById('contact-dialog');
+  const openButton = document.getElementById('open-contact-modal');
+  
+  // Elementos do formulário
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const successMessage = document.getElementById('success-message');
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+  const resetBtn = document.getElementById('reset-form-btn');
+
+  // Lógica de Envio
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault(); // Impede o reload da página
+
+    // Simula carregamento
+    const originalText = submitBtn.innerText;
+    submitBtn.innerText = 'Enviando...';
+    submitBtn.disabled = true;
+
+    // Simula delay de rede (1.5 segundos)
+    setTimeout(() => {
+        // Esconde form, mostra sucesso
+        form.classList.add('hidden');
+        successMessage?.classList.remove('hidden');
+        successMessage?.classList.add('flex');
+        
+        // Reseta o botão para a próxima vez
+        submitBtn.innerText = originalText;
+        submitBtn.disabled = false;
+        form.reset();
+    }, 1500);
+  });
+
+  // Botão "Enviar outra mensagem" dentro da tela de sucesso
+  resetBtn?.addEventListener('click', () => {
+    resetFormView();
+  });
+
+  // Função para voltar ao estado inicial do form
+  function resetFormView() {
+    successMessage?.classList.add('hidden');
+    successMessage?.classList.remove('flex');
+    form?.classList.remove('hidden');
+  }
+
+  // --- Lógica do Modal Existente ---
+
+  openButton?.addEventListener('click', () => {
+    // @ts-ignore
+    dialog?.showModal();
+    document.body.style.overflow = 'hidden'; 
+  });
+
+  dialog?.addEventListener('close', () => {
+    document.body.style.overflow = '';
+    // Opcional: Resetar o formulário quando fechar o modal, para ele abrir "limpo" na próxima vez
+    setTimeout(resetFormView, 300); 
+  });
+
+  dialog?.addEventListener('click', (event) => {
+    // @ts-ignore
+    if (event.target === dialog) {
+      // @ts-ignore
+      dialog.close();
+    }
+  });
+</script>
+
+<style>
+  dialog[open] { animation: fadeIn 0.3s ease-out; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  dialog::backdrop { background: rgba(0, 0, 0, 0.5); backdrop-filter: blur(4px); }
+  
+  .scrollbar-rounded::-webkit-scrollbar { width: 6px; }
+  .scrollbar-rounded::-webkit-scrollbar-track { background: transparent; margin-block: 2rem; }
+  .scrollbar-rounded::-webkit-scrollbar-thumb { background-color: var(--color-md-outline-variant); border-radius: 99px; }
+  .scrollbar-rounded::-webkit-scrollbar-thumb:hover { background-color: var(--color-md-outline); }
+</style>
