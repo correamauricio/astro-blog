@@ -3,6 +3,10 @@ html {
     font-family: sans-serif;
   }
   
+a {
+  text-decoration: none;
+}
+
   body {
     margin: 0 auto;
     width: 100%;
@@ -49,7 +53,7 @@ html {
   
   .nav-links a:hover,
   .nav-links a:focus {
-    background-color: #ff9776;
+    background-color: #ff96765c;
   }
   
   @media screen and (min-width: 636px) {
@@ -58,7 +62,7 @@ html {
       }
 
     .nav-links {
-      margin-left: 5em;
+      padding: 0;
       display: block;
       position: static;
       width: auto;
@@ -68,6 +72,7 @@ html {
     .nav-links a {
       display: inline-block;
       padding: 15px 20px;
+      border-radius: 8px;
     }
 
     .menu {

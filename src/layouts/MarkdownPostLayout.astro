@@ -15,8 +15,30 @@ const { frontmatter } = Astro.props;
     <slot />
     <hr>
     
-    <ul>
-        {frontmatter.tags.map((tag: string) => <li>{tag}</li>)}
+    <ul class="tags">
+        {frontmatter.tags.map((tag: string) => (
+            <p class="tag"><a href={`/tags/${tag}`}>{tag}</a></p>
+        ))}
     </ul>
 </BaseLayout>
+<style>
+  a {
+    color: #00539F;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25em;
+    padding: 0;
+  }
+
+  .tag {
+    border: dotted 1px #a1a1a1;
+    border-radius: .5em;
+    padding: .5em 1em;
+    font-size: 1.15em;
+    background-color: #F8FCFD;
+  }
+</style>
 
