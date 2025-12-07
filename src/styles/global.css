@@ -154,3 +154,9 @@
 html {
   scrollbar-gutter: stable;
 }
+
+::selection {
+  background-color: var(--color-md-primary-container);
+  color: var(--color-md-on-primary-container);
+  border-radius: 8px;
+}

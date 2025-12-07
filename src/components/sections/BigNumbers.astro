@@ -1,22 +1,18 @@
 ---
 import { getImage } from 'astro:assets';
-// Importe sua imagem original
-import amanhecerSrc from '../../assets/BigNumbersImage.png';
+import bgImage from '../../assets/BigNumbersImage.png';
 
-// 1. Otimiza a imagem antes de renderizar (converte para webp, redimensiona se precisar)
 const optimizedBg = await getImage({
-  src: amanhecerSrc,
+  src: bgImage,
   format: 'webp',
-  // quality: 'mid', // Opcional: controle de qualidade
 });
 
-// Criamos uma string auxiliar para limpar o HTML
 const bgStyle = `background-image: url(${optimizedBg.src});`;
 ---
 
-<div class="w-full overflow-hidden flex flex-col items-center gap-4 my-40">
+<div class="w-full overflow-hidden flex flex-col items-center gap-4 my-40 pr-20 md:pr-0">
 
-  <div class="flex gap-4 min-w-[120vw]">
+  <div class="flex gap-4 lg:min-w-[120vw] md:min-w-[200vw] min-w-[360vw]">
     
     <div 
       class="rounded-4xl grow bg-fixed bg-cover bg-center p-4"
@@ -54,49 +50,91 @@ const bgStyle = `background-image: url(${optimizedBg.src});`;
     ></div>
   </div>
 
-  <div class="flex gap-4 min-w-[120vw]">
+  <div class="flex gap-4 lg:min-w-[120vw] md:min-w-[200vw] min-w-[360vw]">
     <div 
-      class="rounded-4xl grow bg-fixed bg-cover bg-center p-4"
+      class="rounded-4xl grow bg-fixed bg-cover bg-center p-4 order-1"
       style={bgStyle}
     ></div>
 
     <div 
-      class="rounded-4xl grow basis-0 col-span-2 bg-fixed bg-cover bg-center p-4"
+      class="rounded-4xl grow basis-0 col-span-2 bg-fixed bg-cover bg-center p-4 order-2"
       style={bgStyle}
     ></div>
 
     <div 
-      class="rounded-4xl grow basis-0 col-span-2 bg-fixed bg-cover bg-center p-4"
+      class="rounded-4xl grow basis-0 col-span-2 bg-fixed bg-cover bg-center p-4 order-3"
       style={bgStyle}
     ></div>
 
     <div 
-      class="rounded-4xl grow basis-0 col-span-2 bg-fixed bg-cover bg-center p-4"
+      class="rounded-4xl grow basis-0 col-span-2 bg-fixed bg-cover bg-center p-4 order-4"
       style={bgStyle}
     ></div>
 
-    <div 
-      class="rounded-4xl grow basis-0 col-span-2 bg-fixed bg-cover bg-center p-4"
-      style={bgStyle}
-    ></div>
-
-    <div class="rounded-4xl grow basis-0 col-span-2 p-4 min-h-32 justify-center flex flex-col whitespace-nowrap">
+    <div class="rounded-4xl grow basis-0 col-span-2 p-4 min-h-32 justify-center flex flex-col whitespace-nowrap order-5 lg:order-6">
       <h1 class="text-md-on-surface type-display-small-emphasized">35%</h1>
       <span class="text-md-on-surface type-body-large">redução na evasão em<br>clientes Analytics</span>
     </div>
 
     <div 
-      class="rounded-4xl grow basis-0 col-span-2 bg-fixed bg-cover bg-center p-4"
+      class="rounded-4xl grow basis-0 col-span-2 bg-fixed bg-cover bg-center p-4 order-6 lg:order-5"
       style={bgStyle}
     ></div>
 
     <div 
-      class="rounded-4xl grow basis-0 col-span-2 bg-fixed bg-cover bg-center p-4"
+      class="rounded-4xl grow basis-0 col-span-2 bg-fixed bg-cover bg-center p-4 order-7"
+      style={bgStyle}
+    ></div>
+
+    <div 
+      class="rounded-4xl grow basis-0 col-span-2 bg-fixed bg-cover bg-center p-4 order-8"
       style={bgStyle}
     ></div>
   </div>
 
-  <div class="flex gap-4 min-w-[120vw]">
+  <div class="flex gap-4 lg:min-w-[120vw] md:min-w-[200vw] min-w-[360vw]">
+    <div 
+      class="rounded-4xl grow bg-fixed bg-cover bg-center p-4 order-1"
+      style={bgStyle}
+    ></div>
+
+    <div 
+      class="rounded-4xl grow basis-0 col-span-2 bg-fixed bg-cover bg-center p-4 order-2"
+      style={bgStyle}
+    ></div>
+
+    <div 
+      class="rounded-4xl grow basis-0 col-span-2 bg-fixed bg-cover bg-center p-4 order-3 lg:order-4"
+      style={bgStyle}
+    ></div>
+
+    <div class="rounded-4xl grow basis-0 col-span-2 p-4 min-h-32 justify-center flex flex-col whitespace-nowrap order-4 lg:order-3">
+      <h1 class="text-md-on-surface type-display-small-emphasized">99.9%</h1>
+      <span class="text-md-on-surface type-body-large">uptime na plataforma</span>
+    </div>
+
+    <div class="hidden rounded-4xl grow basis-0 col-span-2 p-4 min-h-32 justify-center lg:flex flex-col whitespace-nowrap order-5">
+      <h1 class="text-md-on-surface type-display-small-emphasized">Nº 1</h1>
+      <span class="text-md-on-surface type-body-large">em satisfação de<br>usabilidade</span>
+    </div>
+
+    <div 
+      class="lg:hidden rounded-4xl grow basis-0 col-span-2 bg-fixed bg-cover bg-center p-4 order-6"
+      style={bgStyle}
+    ></div>
+
+    <div 
+      class="rounded-4xl grow basis-0 col-span-2 bg-fixed bg-cover bg-center p-4 order-7"
+      style={bgStyle}
+    ></div>
+
+    <div 
+      class="rounded-4xl grow basis-0 col-span-2 bg-fixed bg-cover bg-center p-4 order-8"
+      style={bgStyle}
+    ></div>
+  </div>
+
+  <div class="lg:hidden flex gap-4 lg:min-w-[120vw] md:min-w-[200vw] min-w-[360vw]">
     <div 
       class="rounded-4xl grow bg-fixed bg-cover bg-center p-4"
       style={bgStyle}
@@ -107,10 +145,10 @@ const bgStyle = `background-image: url(${optimizedBg.src});`;
       style={bgStyle}
     ></div>
 
-    <div class="rounded-4xl grow basis-0 col-span-2 p-4 min-h-32 justify-center flex flex-col whitespace-nowrap">
-      <h1 class="text-md-on-surface type-display-small-emphasized">99.9%</h1>
-      <span class="text-md-on-surface type-body-large">uptime na plataforma</span>
-    </div>
+    <div 
+      class="rounded-4xl grow basis-0 col-span-2 bg-fixed bg-cover bg-center p-4"
+      style={bgStyle}
+    ></div>
 
     <div 
       class="rounded-4xl grow basis-0 col-span-2 bg-fixed bg-cover bg-center p-4"
@@ -121,6 +159,11 @@ const bgStyle = `background-image: url(${optimizedBg.src});`;
       <h1 class="text-md-on-surface type-display-small-emphasized">Nº 1</h1>
       <span class="text-md-on-surface type-body-large">em satisfação de<br>usabilidade</span>
     </div>
+
+    <div 
+      class="rounded-4xl grow basis-0 col-span-2 bg-fixed bg-cover bg-center p-4"
+      style={bgStyle}
+    ></div>
 
     <div 
       class="rounded-4xl grow basis-0 col-span-2 bg-fixed bg-cover bg-center p-4"
