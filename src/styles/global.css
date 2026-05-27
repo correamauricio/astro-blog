@@ -144,6 +144,14 @@
   letter-spacing: 0.1px;
 }
 
+@utility type-display-small-emphasized {
+  font-size: 36px;
+  line-height: 44px;
+  font-weight: 500;
+}
+
+
+
 html {
   scrollbar-gutter: stable;
 }
