@@ -130,6 +130,13 @@
   letter-spacing: 0.15px;
 }
 
+@utility type-title-medium-emphasized {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  letter-spacing: 0.15px;
+}
+
 @utility type-label-medium {
   font-size: 12px;
   line-height: 16px;
@@ -144,14 +151,26 @@
   letter-spacing: 0.1px;
 }
 
+@utility type-label-small {
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
 @utility type-display-small-emphasized {
   font-size: 36px;
   line-height: 44px;
   font-weight: 500;
+  letter-spacing: 0px;
 }
-
-
 
 html {
   scrollbar-gutter: stable;
+}
+
+::selection {
+  background-color: var(--color-md-primary-container);
+  color: var(--color-md-on-primary-container);
+  border-radius: 8px;
 }

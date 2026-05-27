@@ -1,0 +1,26 @@
+---
+import Image from "astro/components/Image.astro";
+import MdButton from "../MdButton.astro";
+import aboutImg from '../../assets/AboutImageHome.png';
+---
+
+<article class="mx-auto my-10 px-4 flex flex-col lg:flex-row gap-6 lg:items-center w-full max-w-7xl">
+    
+    <div class="flex-1 flex flex-col items-start text-left">
+        
+        <p class="type-label-small text-md-on-surface-variant mb-2">SOBRE NÓS</p>
+        <h1 class="type-headline-medium-emphasized text-md-on-surface mb-6">Conectando conhecimento, potencializando o futuro</h1>
+        <p class="type-body-large text-md-on-surface-variant mb-6">Savant Nexus resolve a fragmentação nas instituições de ensino. Substituímos sistemas antigos por um ecossistema focado na usabilidade e no sucesso do aluno, otimizando a gestão e enriquecendo a jornada de aprendizagem.</p>
+        
+        <MdButton size="md" variant="tonal">
+            Veja nossa história
+        </MdButton>
+        
+    </div>
+
+    <Image
+        src={aboutImg}
+        alt="Imagem sobre nós"
+        class="rounded-4xl h-auto object-cover flex-1 lg:w-1/2"
+    />
+</article>
